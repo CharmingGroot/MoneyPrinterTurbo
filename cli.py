@@ -46,6 +46,11 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--video-aspect", default="9:16", help="video aspect ratio")
     parser.add_argument("--voice-name", default="", help="tts voice name")
     parser.add_argument(
+        "--font-name",
+        default="NanumGothic.ttf",
+        help="subtitle font file in resource/fonts (default: Korean-capable NanumGothic.ttf)",
+    )
+    parser.add_argument(
         "--subtitle-enabled",
         default=True,
         action=argparse.BooleanOptionalAction,
@@ -79,6 +84,7 @@ def build_video_params(args: argparse.Namespace) -> VideoParams:
         video_count=args.video_count,
         video_aspect=args.video_aspect,
         voice_name=args.voice_name,
+        font_name=args.font_name,
         subtitle_enabled=args.subtitle_enabled,
     )
 
